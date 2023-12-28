@@ -38,11 +38,11 @@ class TimeExtractor(object):
 
         self.single_char_time = set(['春', '夏', '秋', '冬'])
 
-    def __call__(self, text, time_base=time.time(), with_parsing=True, ret_all=False,
+    def __call__(self, text, with_parsing=True, ret_all=False,
                  ret_type='str', ret_future=False, period_results_num=None):
         if self.parse_time is None:
             self._prepare()
-
+        time_base = time.time()
         candidates_list = self.extract_time_candidates(text)
 
         time_entity_list = list()
